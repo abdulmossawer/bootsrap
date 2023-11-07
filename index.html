@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="Website icon" type="png" href="/Images/My project-1.png"  >
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"> <img src="/Images/Nike-Logo_100x53.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About Us</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="#top-seller"> Top Seller</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="#gallery">Gallery</a>
+              </li>
+            </ul>
+            <form class="nav-item">
+              <button type="button" onclick="openForm()" class="btn btn-primary">Log in</button>
+              <button type="button" onclick="openForm1()" class="btn btn-primary">Sign Up</button>
+            </form>
+            
+          </div>
+        </div>
+      </nav>
+    <!-- Navbar -->
+    <!-- form -->
+    <style>
+      
+      * {
+        box-sizing: border-box;
+      }
+      .openBtn {
+        display: flex;
+        justify-content: left;
+      }
+      .openButton {
+        border: none;
+        border-radius: 5px;
+        background-color: #1c87c9;      
+        color: white;
+        padding: 14px 20px; 
+        cursor: pointer;
+        position: fixed;
+      }
+
+      .loginPopup {
+        position: relative;
+        text-align: center;
+        width: 100%;
+      }
+
+      .formPopup {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top: 5%;
+        transform: translate(-50%, 5%);
+        border: 3px solid #999999;
+        z-index: 9;
+      }
+
+      .formContainer {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+      }
+
+      .formContainer input[type=text],
+      .formContainer input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+      }
+
+      .formContainer input[type=text]:focus,
+      .formContainer input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+      .formContainer .cancel {
+        background-color: #cc0000;
+      }
+      .formContainer .btn:hover,
+      .openButton:hover {
+        opacity: 1;
+      }
+
+      /* Sign Up */
+      .openBtn1 {
+        display: flex;
+        justify-content: left;
+      }
+      .openButton1 {
+        border: none;
+        border-radius: 5px;
+        background-color: #1c87c9;      
+        color: white;
+        padding: 14px 20px; 
+        cursor: pointer;
+        position: fixed;
+      }
+
+      .loginPopup1 {
+        position: relative;
+        text-align: left;
+        width: 100%;
+      }
+
+      .formPopup1 {
+        display: none;
+        position: fixed;
+        left: 45%;
+        top: 5%;
+        transform: translate(-50%, 5%);
+        border: 3px solid #999999;
+        z-index: 9;
+        font-size: 1px;
+      }
+      .formContainer1 h2{
+        font-size: 15px;
+      }
+      .formContainer1 {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+      }
+
+      .formContainer1 input[type=text],
+      .formContainer1 input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+      }
+
+      .formContainer1 input[type=text]:focus,
+      .formContainer1 input[type=password]:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      .formContainer1 .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+      }
+      .formContainer1 .cancel {
+        background-color: #cc0000;
+      }
+      .formContainer1 .btn:hover,
+      .openButton:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Log In  -->
+    <div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+        <form action="/action_page.php" class="formContainer" name = "myForm" onsubmit = "return(validate());">
+          <h4>Please Log In</h4>
+          <label for="email">
+            <strong>E-mail</strong>
+          </label>
+          <input type="text" id="email" placeholder="Your Email" name="EMail" >
+
+          
+          <label for="psw">
+            <strong>Password</strong>
+          </label>
+          <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+          <button type="submit" class="btn">Log in</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+      <!-- Sign Up -->
+      <div class="loginPopup1">
+        <div class="formPopup1" id="popupsign1">
+        <form action="/action_page.php" class="formContainer1" name = "myForm1" onsubmit = "return(validate());">
+            <h2>Please Sign Up<h2>
+              <label for="name">
+                <strong>Name</strong>
+              </label>
+              <input type="text" id="name" placeholder="Your name" name="Name" >
+
+              <label for="email">
+                <strong>E-mail</strong>
+              </label>
+              <input type="text" id="email" placeholder="Your Email" name="EMail" >
+
+            <label for="name">
+              <strong>User-Name</strong>
+            </label>
+            <input type="text" id="name" placeholder="Your Name" name="User-name" required>
+
+            <label for="psw">
+              <strong>Password</strong>
+            </label>
+            <input type="password" id="psw" placeholder="Your Password" name="psw" required>
+
+            <button type="submit" class="btn">Sign Up</button>
+            <button type="button" class="btn cancel" onclick="closeForm1()">Close</button>
+          </form>
+        </div>
+    <script>
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+      }
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+
+      // form validation login
+
+      function validate(){
+        if( document.myForm.EMail.value == "" ) {
+                 alert( "Please provide your Email!" );
+                 document.myForm.EMail.focus() ;
+                 return false;
+              }
+              var emailID = document.myForm.EMail.value;
+              atpos = emailID.indexOf("@");
+              dotpos = emailID.lastIndexOf(".");
+              
+              if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                 alert("Please enter correct email ID")
+                 document.myForm.EMail.focus() ;
+                 return false;
+              }}
+              
+      // form validation signup
+
+      
+      function validate(){
+
+                if( document.myForm1.Name.value == "" ) {
+                 alert( "Please provide your name!" );
+                 document.myForm1.Name.focus() ;
+                 return false;
+              }
+
+        if( document.myForm1.EMail.value == "" ) {
+                 alert( "Please provide your Email!" );
+                 document.myForm1.EMail.focus() ;
+                 return false;
+              }
+              var emailID = document.myForm1.EMail.value;
+              atpos = emailID.indexOf("@");
+              dotpos = emailID.lastIndexOf(".");
+              
+              if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                 alert("Please enter correct email ID")
+                 document.myForm1.EMail.focus() ;
+                 return false;
+              }}
+
+
+      function openForm1() {
+        document.getElementById("popupsign1").style.display = "block";
+      }
+      function closeForm1() {
+        document.getElementById("popupsign1").style.display = "none";
+      }
+
+
+
+      
+    </script>
+<!-- Carousel Slide -->
+<div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/Images/nike12_1519x635.jpeg" class="d-block w-100 " alt="...">
+        <div class="carousel-caption d-none d-md-block" id="caption">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/Images/nike_13_1519x635.webp" class="d-block w-100 "  alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="/Images/nike14_1519x635.webp" class="d-block w-100 " alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="d-block w-100" alt="Wild Landscape" />
+        </div>
+        <div class="carousel-item">
+            <img src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp" class="d-block w-100" alt="Camera" />
+        </div>
+        <div class="carousel-item">
+            <img src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp" class="d-block w-100" alt="Exotic Fruits" />
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div> -->
+<!-- Carousel Slide -->
+
+<!-- About -->
+<section class="about my-5" id="about">
+  <div class="container text-center">
+    <div>
+      <h1>About Us</h1>
+      <hr class="w-25 m-auto">
+    </div>
+  </div>
+</section>
+<div class="container text-justify">
+  <div class="row">
+    <div class="col-sm-6 para">
+      <h1>Why you should buy NIKE?</h1>
+      <p>You should buy Nike because they consistently deliver high-quality products that combine performance, style, and innovation. With a strong brand reputation built over decades, Nike offers an extensive range of sports footwear, apparel,
+      and equipment for various activities. Whether you're an athlete or simply appreciate quality and comfort, Nike's commitment to excellence ensures that you'll be getting products that are reliable, durable, and designed to enhance your performance and style.</p>
+    </div>
+    <div class="col-sm-6">
+      <img src="/Images/elevate-3-basketball-shoes-QT43Gj_636x425.jpg" class=" img-fluid "  alt="">
+    </div>
+  </div>
+</div>
+<!-- About -->
+
+<!-- Top Seller  -->
+<section class="team my-5 text-center" id="top-seller">
+  <div class="container">
+    <div class="text-center my-5">
+      <h1>Top Seller</h1>
+      <hr class="w-25 m-auto">
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img src="/Images/nikkeee.webp" class="img container-fluid rounded-circle border-primay" alt="">
+      </div>
+      <div class="col">
+        <img src="/Images/nikeeee3.webp" class=" container-fluid rounded-circle border-primay" alt="">
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- Top Seller  -->
+
+<!-- Image Gallery -->
+<section class="about my-5" id="gallery">
+  <div class="container text-center">
+    <div>
+      <h1>Gallery</h1>
+      <hr class="w-25 m-auto">
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="0"> <img src="/Images/n10.jpg" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="1"> <img src="/Images/n1.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="2"> <img src="/Images/n3.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="3"> <img src="/Images/n4.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="4"> <img src="/Images/n5.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="5"> <img src="/Images/n7.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="6"> <img src="/Images/n8.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+    <div class="col-lg-3 col-md-4 col-sm-6" data-toggle="modal" data-target="#modal">
+      <a href="#lightbox" data-slide-to="7"> <img src="/Images/n9.webp" class="img-fluid my-3" style="height: 250px; width: 300px;" ></a>
+    </div>
+  </div>
+</div>
+<!-- Image Gallery -->
+
+<!-- Footer -->
+<div class="footer-clean">
+  <footer>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Categories</h3>
+                  <ul>
+                      <li><a href="#">Snekaers</a></li>
+                      <li><a href="#">Gyming</a></li>
+                      <li><a href="#">casual</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="#">Company</a></li>
+                      <li><a href="#">Team</a></li>
+                      <li><a href="#">Legacy</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Get Help</h3>
+                  <ul>
+                      <li><a href="#">Order Status</a></li>
+                      <li><a href="#">Delivery</a></li>
+                      <li><a href="#">Returns</a></li>
+                  </ul>
+              </div>
+              <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
+                  <p class="copyright">Company Name © 2018</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>
+<!-- Footer -->
+
+  </body>
+</html>

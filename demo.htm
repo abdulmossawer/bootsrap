@@ -1,0 +1,56 @@
+<body>
+    <div class="openBtn">
+    </div>
+    <div class="loginPopup">
+      <div class="formPopup" id="popupForm">
+        <form action="/action_page.php" class="formContainer" name = "myForm" onsubmit = "return(validate());">
+          <h2>Please Log in</h2>
+          <label for="name">
+            <strong>Name</strong>
+          </label>
+          <input type="text" id="name" placeholder="Your name" name="Name" >
+          <label for="email">
+            <strong>E-mail</strong>
+          </label>
+          <input type="text" id="email" placeholder="Your Email" name="EMail" >
+          <label for="psw">
+            <strong>Password</strong>
+          </label>
+          <input type="password" id="psw" placeholder="Your Password" name="psw" >
+          <button type="submit" class="btn">Log in</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </div>
+    <script type = "text/javascript">
+       function validate(){
+        if( document.myForm.Name.value == "" ) {
+                 alert( "Please provide your name!" );
+                 document.myForm.Name.focus() ;
+                 return false;
+              }
+        if( document.myForm.EMail.value == "" ) {
+                 alert( "Please provide your Email!" );
+                 document.myForm.EMail.focus() ;
+                 return false;
+              }
+              var emailID = document.myForm.EMail.value;
+              atpos = emailID.indexOf("@");
+              dotpos = emailID.lastIndexOf(".");
+              
+              if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                 alert("Please enter correct email ID")
+                 document.myForm.EMail.focus() ;
+                 return false;
+              }
+              
+      }
+      function openForm() {
+        document.getElementById("popupForm").style.display = "block";
+      }
+      function closeForm() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+    </script>
+  <body>
+    <script
